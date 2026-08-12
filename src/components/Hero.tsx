@@ -35,13 +35,13 @@ export default function Hero() {
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 pt-4">
-          
+          <a
             href="#early-access"
             className="px-10 py-4 bg-amber-600 hover:bg-amber-700 rounded-lg font-semibold transition-all duration-200 text-center shadow-lg hover:shadow-amber-600/50 hover:shadow-2xl"
           >
             Get Early Access
           </a>
-          
+          <a
             href="#journey"
             className="px-10 py-4 border-2 border-amber-600 text-amber-400 hover:bg-amber-600/10 rounded-lg font-semibold transition-all duration-200 text-center"
           >
