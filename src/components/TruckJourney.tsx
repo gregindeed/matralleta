@@ -4,31 +4,31 @@ export default function TruckJourney() {
       phase: 'The Dream',
       year: '2024',
       description: 'Started with vision and a beat-up van. Coffee knowledge, zero logistics.',
-      icon: '💭',
+      icon: '01',
     },
     {
       phase: 'The Build',
       year: 'Early 2025',
       description: 'Complete truck rebuild. Custom espresso setup, storage, branding. Nights and weekends.',
-      icon: '🔧',
+      icon: '02',
     },
     {
       phase: 'First Cup',
       year: 'Spring 2025',
       description: 'Soft launch in Pacific Beach. Community feedback reshapes everything.',
-      icon: '☕',
+      icon: '03',
     },
     {
       phase: 'Growth',
       year: 'Summer 2025',
       description: 'Multiple locations, merch launch, crew expansion. Matralleta becomes a thing.',
-      icon: '🚀',
+      icon: '04',
     },
     {
       phase: 'Momentum',
       year: 'Now',
       description: 'Street culture meets coffee culture. We\'re just getting started.',
-      icon: '🎯',
+      icon: '05',
     },
   ];
 
@@ -54,7 +54,7 @@ export default function TruckJourney() {
               <div key={index} className={`flex items-start gap-8 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                 {/* Timeline point */}
                 <div className="hidden md:flex flex-1 justify-end pr-12">
-                  <div className="w-12 h-12 rounded-full bg-amber-600 flex items-center justify-center text-2xl relative z-10 shadow-lg">
+                  <div className="w-12 h-12 rounded-full bg-amber-600 flex items-center justify-center text-sm font-bold tracking-widest text-zinc-950 relative z-10 shadow-lg">
                     {milestone.icon}
                   </div>
                 </div>
@@ -63,7 +63,7 @@ export default function TruckJourney() {
                 <div className="flex-1 md:pl-0">
                   <div className="bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-xl p-6 border border-amber-600/20 hover:border-amber-600/40 transition-colors duration-200">
                     <div className="flex items-center gap-3 md:hidden mb-4">
-                      <span className="text-3xl">{milestone.icon}</span>
+                      <span className="text-amber-500 text-sm font-bold tracking-[0.3em]">{milestone.icon}</span>
                     </div>
                     <div className="space-y-2">
                       <p className="text-amber-400 font-semibold text-sm">{milestone.year}</p>

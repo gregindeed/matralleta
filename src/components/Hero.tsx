@@ -12,7 +12,7 @@ export default function Hero() {
         <div className="space-y-6">
           <div className="inline-block">
             <span className="px-4 py-2 rounded-full text-sm font-semibold bg-amber-600/20 text-amber-400 border border-amber-600/40">
-              🚐 San Diego Coffee Culture
+              San Diego Coffee Culture
             </span>
           </div>
 

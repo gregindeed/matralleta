@@ -32,18 +32,18 @@ export default function EmailSignup() {
 
       if (response && response.ok) {
         setStatus('success');
-        setMessage('🎉 Welcome to the Matralleta crew! Check your email for exclusive perks.');
+        setMessage('Welcome to the Matralleta crew! Check your email for exclusive perks.');
         setEmail('');
       } else {
         // Assume success even if API fails (static site fallback)
         setStatus('success');
-        setMessage('🎉 Welcome to the Matralleta crew! Watch for early access drops.');
+        setMessage('Welcome to the Matralleta crew! Watch for early access drops.');
         setEmail('');
       }
     } catch (error) {
       // Graceful fallback
       setStatus('success');
-      setMessage('🎉 Thanks for signing up! We\'ll be in touch soon.');
+      setMessage('Thanks for signing up! We\'ll be in touch soon.');
       setEmail('');
     }
   };
@@ -103,15 +103,15 @@ export default function EmailSignup() {
         {/* Trust signals */}
         <div className="grid sm:grid-cols-3 gap-6 pt-12 border-t border-zinc-800">
           <div className="text-center">
-            <div className="text-3xl mb-2">🔒</div>
+            <div className="mb-3 flex justify-center text-amber-500"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg></div>
             <p className="text-sm text-zinc-400">No spam. Ever.</p>
           </div>
           <div className="text-center">
-            <div className="text-3xl mb-2">🎁</div>
+            <div className="mb-3 flex justify-center text-amber-500"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><rect x="3" y="8" width="18" height="4" rx="1" /><path d="M12 8v13" /><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" /><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5" /></svg></div>
             <p className="text-sm text-zinc-400">First access to drops</p>
           </div>
           <div className="text-center">
-            <div className="text-3xl mb-2">📍</div>
+            <div className="mb-3 flex justify-center text-amber-500"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg></div>
             <p className="text-sm text-zinc-400">Truck location updates</p>
           </div>
         </div>

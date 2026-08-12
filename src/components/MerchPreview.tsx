@@ -5,7 +5,6 @@ export default function MerchPreview() {
       category: 'Shirt',
       description: 'Heavy cotton. Bold Matralleta logo. Available in black & cream.',
       price: '$32',
-      emoji: '👕',
       color: 'from-slate-600 to-slate-800',
     },
     {
@@ -13,7 +12,6 @@ export default function MerchPreview() {
       category: 'Drinkware',
       description: 'Ceramic. 12oz. Perfect for daily coffee rituals.',
       price: '$16',
-      emoji: '☕',
       color: 'from-amber-700 to-amber-900',
     },
     {
@@ -21,7 +19,6 @@ export default function MerchPreview() {
       category: 'Sticker',
       description: 'Set of 5. Weather-resistant. Truck, coffee, culture vibes.',
       price: '$8',
-      emoji: '🎨',
       color: 'from-pink-600 to-purple-800',
     },
     {
@@ -29,7 +26,6 @@ export default function MerchPreview() {
       category: 'Hat',
       description: 'Cotton twill. Embroidered logo. Adjustable fit.',
       price: '$28',
-      emoji: '🧢',
       color: 'from-zinc-700 to-zinc-900',
     },
   ];
@@ -58,8 +54,8 @@ export default function MerchPreview() {
               className="group bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-xl overflow-hidden border border-zinc-700 hover:border-amber-600 transition-all duration-300 hover:shadow-lg hover:shadow-amber-600/20"
             >
               {/* Merch visual */}
-              <div className={`h-40 bg-gradient-to-br ${item.color} flex items-center justify-center text-6xl group-hover:scale-110 transition-transform duration-300`}>
-                {item.emoji}
+              <div className={`h-40 bg-gradient-to-br ${item.color} flex items-center justify-center group-hover:scale-105 transition-transform duration-300`}>
+                <span className="text-lg font-bold uppercase tracking-[0.35em] text-white/30 select-none">Matralleta</span>
               </div>
 
               {/* Content */}
