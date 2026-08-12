@@ -41,12 +41,6 @@ export default function Hero() {
           >
             Get Early Access
           </a>
-          <a
-            href="#journey"
-            className="px-10 py-4 border-2 border-amber-600 text-amber-400 hover:bg-amber-600/10 rounded-lg font-semibold transition-all duration-200 text-center"
-          >
-            See Our Journey
-          </a>
         </div>
       </div>
 

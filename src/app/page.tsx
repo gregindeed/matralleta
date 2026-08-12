@@ -2,8 +2,6 @@
 
 import { useState } from 'react';
 import Hero from '@/components/Hero';
-import TruckJourney from '@/components/TruckJourney';
-import MerchPreview from '@/components/MerchPreview';
 import EmailSignup from '@/components/EmailSignup';
 import Footer from '@/components/Footer';
 
@@ -26,8 +24,6 @@ export default function Home() {
 
         {/* Main content */}
         <Hero />
-        <TruckJourney />
-        <MerchPreview />
         <EmailSignup />
         <Footer />
       </div>

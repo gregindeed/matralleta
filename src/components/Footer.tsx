@@ -43,16 +43,6 @@ export default function Footer() {
             <h4 className="font-semibold mb-4 text-amber-400">Navigate</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#journey" className="text-zinc-400 hover:text-amber-400 transition-colors text-sm">
-                  Our Journey
-                </a>
-              </li>
-              <li>
-                <a href="#merch" className="text-zinc-400 hover:text-amber-400 transition-colors text-sm">
-                  Merch
-                </a>
-              </li>
-              <li>
                 <a href="#early-access" className="text-zinc-400 hover:text-amber-400 transition-colors text-sm">
                   Early Access
                 </a>
