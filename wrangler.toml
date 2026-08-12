@@ -1,0 +1,16 @@
+name = "matralleta"
+type = "javascript"
+account_id = "c60d73bd6bdd2bfa6aba42a117a4b69e"
+workers_dev = true
+main = "src/index.ts"
+compatibility_date = "2025-08-01"
+
+[env.production]
+name = "matralleta-prod"
+routes = [
+  { pattern = "matralleta.pages.dev", zone_name = "pages.dev" }
+]
+
+[build]
+command = "npm run build"
+cwd = "./"
