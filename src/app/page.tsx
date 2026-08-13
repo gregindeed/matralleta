@@ -17,7 +17,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-amber-50 flex flex-col">
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#f5f0e8' }}>
       {/* Hero */}
       <div className="flex-1 flex flex-col items-center justify-center p-6">
         {/* Gun image */}
