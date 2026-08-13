@@ -1,17 +1,125 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Archivo_Black } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const archivo = Archivo_Black({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-archivo',
+});
 
 export const metadata: Metadata = {
-  title: 'Matralleta - Coffee Truck & Street Culture',
-  description: 'San Diego-based coffee truck meets street culture. Honest espresso, bold vibes, and stories served fresh.',
-  openGraph: {
-    title: 'Matralleta',
-    description: 'Coffee truck + street culture from San Diego',
-    type: 'website',
+  metadataBase: new URL('https://matralleta.com'),
+  title: 'Matralleta Coffee Co. — Small Batch. Fully Loaded.',
+  description:
+    'Small-batch specialty coffee with Baja California roots, shipped anywhere. Four limited-run cuts — Dual Wield, Ratatatat, Quick Draw, Double Feed. Join the list for first access to drops.',
+  keywords: [
+    'Matralleta',
+    'Matralleta Coffee',
+    'small batch coffee',
+    'specialty coffee',
+    'Baja California coffee',
+    'San Diego coffee roaster',
+    'Mexican coffee',
+    'limited run coffee drops',
+    'whole bean coffee',
+  ],
+  alternates: {
+    canonical: '/',
   },
+  openGraph: {
+    title: 'Matralleta Coffee Co.',
+    description:
+      'Small batch. Fully loaded. Baja-born coffee, shipped wherever you are.',
+    url: 'https://matralleta.com',
+    siteName: 'Matralleta Coffee Co.',
+    type: 'website',
+    locale: 'en_US',
+    images: ['/og.jpg'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Matralleta Coffee Co. — Small Batch. Fully Loaded.',
+    description:
+      'Baja-born small-batch coffee in four limited-run cuts. Join the list for first dibs.',
+    images: ['/og.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://matralleta.com/#org',
+      name: 'Matralleta Coffee Co.',
+      url: 'https://matralleta.com',
+      logo: 'https://matralleta.com/logo_01.png',
+      email: 'hello@matralleta.com',
+      parentOrganization: { '@type': 'Organization', name: 'Baja Vibes Co.' },
+      description:
+        'Small-batch specialty coffee roasted in Baja California with San Diego street culture roots, shipped anywhere.',
+      areaServed: ['US', 'MX'],
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'San Diego',
+        addressRegion: 'CA',
+        addressCountry: 'US',
+      },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://matralleta.com/#website',
+      url: 'https://matralleta.com',
+      name: 'Matralleta Coffee Co.',
+      publisher: { '@id': 'https://matralleta.com/#org' },
+    },
+    {
+      '@type': 'ItemList',
+      name: 'The Lineup',
+      description:
+        'Four small-batch coffee cuts roasted in limited runs.',
+      itemListElement: [
+        {
+          '@type': 'Product',
+          position: 1,
+          name: 'Dual Wield',
+          description:
+            'Medium roast, single origin Colombia. Honey and cinnamon notes.',
+          brand: { '@id': 'https://matralleta.com/#org' },
+        },
+        {
+          '@type': 'Product',
+          position: 2,
+          name: 'Ratatatat',
+          description:
+            'Dark roast strong cut, single origin Chiapas, Mexico. Cocoa and chili notes.',
+          brand: { '@id': 'https://matralleta.com/#org' },
+        },
+        {
+          '@type': 'Product',
+          position: 3,
+          name: 'Quick Draw',
+          description:
+            'Light roast, single origin Ethiopia. Citrus and honeysuckle notes.',
+          brand: { '@id': 'https://matralleta.com/#org' },
+        },
+        {
+          '@type': 'Product',
+          position: 4,
+          name: 'Double Feed',
+          description:
+            'Espresso roast, single origin Brazil. Dark chocolate and brown sugar notes. Built for double shots.',
+          brand: { '@id': 'https://matralleta.com/#org' },
+        },
+      ],
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -21,7 +129,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} bg-zinc-950 text-white`}>
+      <body
+        className={`${inter.variable} ${archivo.variable} font-sans bg-[#f2ddc5] text-[#2c1e14] antialiased`}
+      >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         {children}
       </body>
     </html>

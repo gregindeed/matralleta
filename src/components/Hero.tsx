@@ -1,64 +1,125 @@
+'use client';
+
+import { useState } from 'react';
+
 export default function Hero() {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || !email.includes('@')) {
+      setStatus('error');
+      return;
+    }
+    setStatus('success');
+    setEmail('');
+  };
+
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-24 overflow-hidden">
-      {/* Background accents */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[48rem] h-[48rem] bg-amber-600 rounded-full opacity-10 blur-3xl"></div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-64 bg-gradient-to-t from-zinc-950 to-transparent"></div>
-      </div>
+    <section className="relative flex-1 min-h-[75vh] bg-paper flex items-center px-6 py-16 lg:px-12 overflow-hidden">
+      <div className="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+        {/* Copy column */}
+        <div className="text-center lg:text-left fade-up">
+          <h1 className="sr-only">Matralleta Coffee Co.</h1>
+          <div className="max-w-sm lg:max-w-md mx-auto lg:mx-0 text-center">
+            <img
+              src="/logo.png"
+              alt="Matralleta Coffee Co."
+              className="w-full"
+            />
+            <p className="mt-5 pl-[0.35em] text-kraft-deep font-semibold text-xs lg:text-sm uppercase tracking-[0.35em]">
+              San Diego &times; Baja CA
+            </p>
+          </div>
 
-      {/* Hero content */}
-      <div className="max-w-5xl mx-auto flex flex-col items-center text-center space-y-8">
-        {/* Badge */}
-        <span className="px-4 py-2 rounded-full text-sm font-semibold bg-amber-600/20 text-amber-400 border border-amber-600/40">
-          San Diego Coffee Culture
-        </span>
+          <div className="mt-7 h-px w-16 bg-kraft/50 mx-auto lg:mx-0" aria-hidden="true"></div>
 
-        {/* Wordmark */}
-        <div className="space-y-4">
-          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-tight leading-none text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-zinc-500">
-            Matralleta
-          </h1>
-          <p className="text-amber-500 font-semibold text-sm md:text-base uppercase tracking-[0.4em]">
-            Coffee Truck &bull; Est. San Diego
+          <p className="mt-7 font-display text-2xl lg:text-3xl uppercase tracking-tight text-espresso leading-snug">
+            Small batch. Fully loaded.
           </p>
+
+          <p className="mt-4 text-base lg:text-lg text-espresso-soft leading-relaxed max-w-md mx-auto lg:mx-0">
+            Baja-born beans. San Diego attitude. Shipped wherever you are.
+            Four cuts in limited runs &mdash; from first-light citrus to
+            full-burst cocoa and chili &mdash; roasted with grit and bagged
+            by hand.
+          </p>
+
+          {/* Email capture */}
+          <form
+            id="early-access"
+            onSubmit={handleSubmit}
+            noValidate
+            className="mt-8 max-w-sm mx-auto lg:mx-0"
+          >
+            {status !== 'success' ? (
+              <div className="flex flex-col sm:flex-row gap-3">
+                <label htmlFor="email" className="sr-only">
+                  Email address
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  autoComplete="email"
+                  placeholder="your@email.com"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    setStatus('idle');
+                  }}
+                  className="flex-1 px-4 py-2.5 text-sm bg-white border-2 border-kraft/40 rounded-lg text-espresso placeholder-espresso-soft/50 focus:outline-none focus:border-brand-red transition-colors duration-200"
+                />
+                <button
+                  type="submit"
+                  className="px-5 py-2.5 text-sm bg-brand-red hover:bg-brand-red-deep active:scale-[0.98] text-paper rounded-lg font-semibold transition-all duration-200 whitespace-nowrap shadow-lg shadow-brand-red/25 hover:shadow-xl hover:shadow-brand-red/30"
+                >
+                  Get First Dibs
+                </button>
+              </div>
+            ) : (
+              <p
+                role="status"
+                className="px-4 py-2.5 text-sm bg-white/60 border-2 border-kraft/40 rounded-lg text-sm font-semibold text-espresso text-center sm:text-left"
+              >
+                Welcome to the crew. Watch for the first drop.
+              </p>
+            )}
+            {status === 'error' && (
+              <p role="alert" className="mt-3 text-sm font-medium text-brand-red-deep">
+                Please enter a valid email address.
+              </p>
+            )}
+            {status !== 'success' && (
+              <p className="mt-3 text-xs text-espresso-soft/70">
+                First access to drops &bull; Fresh roast alerts &bull; No
+                spam, ever
+              </p>
+            )}
+          </form>
         </div>
 
-        {/* Tagline */}
-        <p className="text-xl md:text-2xl text-zinc-300 leading-relaxed max-w-3xl">
-          We didn&apos;t just build a coffee truck. We built a movement. Honest espresso, bold vibes, and stories served fresh every day.
-        </p>
-
-        <p className="text-base md:text-lg text-zinc-400 leading-relaxed max-w-2xl">
-          From a raw idea to a street-culture institution, Matralleta is where coffee meets community. Every cup tells a story of craft, grit, and San Diego streets.
-        </p>
-
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-4 pt-4">
-          <a
-            href="#early-access"
-            className="px-10 py-4 bg-amber-600 hover:bg-amber-700 rounded-lg font-semibold transition-all duration-200 text-center shadow-lg hover:shadow-amber-600/50 hover:shadow-2xl"
-          >
-            Get Early Access
+        {/* Packaging */}
+        <div className="relative flex flex-col items-center fade-up fade-up-delay">
+          <div
+            className="absolute bottom-16 left-1/2 -translate-x-1/2 w-3/4 h-10 bg-espresso/10 blur-2xl rounded-full"
+            aria-hidden="true"
+          ></div>
+          <img
+            src="/hero-bag.webp"
+            alt="Matralleta Dual Wield whole-bean coffee in a kraft paper bag"
+            className="w-full max-w-md lg:max-w-xl drop-shadow-2xl float-slow"
+          />
+          {/* Batch caption */}
+          <a href="#lineup" className="mt-6 text-center group">
+            <p className="font-display text-lg uppercase tracking-wide text-espresso group-hover:text-brand-red transition-colors duration-200">
+              Batch 001 &mdash; Dual Wield
+            </p>
+            <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.25em] text-kraft-deep">
+              See the full lineup &darr;
+            </p>
           </a>
         </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <svg
-          className="w-6 h-6 text-amber-600"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"
-          />
-        </svg>
       </div>
     </section>
   );
