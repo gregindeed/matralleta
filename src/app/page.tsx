@@ -1,32 +1,64 @@
 'use client';
 
 import { useState } from 'react';
-import Hero from '@/components/Hero';
-import EmailSignup from '@/components/EmailSignup';
-import Footer from '@/components/Footer';
+import Image from 'next/image';
 
 export default function Home() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [email, setEmail] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      setSubmitted(true);
+      setEmail('');
+      setTimeout(() => setSubmitted(false), 3000);
+    }
+  };
 
   return (
-    <div className={darkMode ? 'dark' : 'light'}>
-      <div className="min-h-screen bg-gradient-to-b from-zinc-950 to-zinc-900 text-white transition-colors duration-300">
-        {/* Dark mode toggle */}
-        <div className="fixed top-6 right-6 z-50">
+    <div className="min-h-screen bg-amber-50 flex flex-col items-center justify-center p-6">
+      {/* Gun image */}
+      <div className="mb-8">
+        <Image
+          src="/og-image.jpg"
+          alt="Matralleta"
+          width={300}
+          height={300}
+          priority
+          className="object-contain"
+        />
+      </div>
+
+      {/* Brand name */}
+      <h1 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-12 text-center tracking-tight">
+        Matralleta Coffee Co
+      </h1>
+
+      {/* Email signup */}
+      <form onSubmit={handleSubmit} className="w-full max-w-md">
+        <div className="flex gap-2">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="flex-1 px-4 py-3 bg-white border border-zinc-300 rounded text-zinc-900 placeholder-zinc-500 focus:outline-none focus:border-zinc-900"
+          />
           <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="p-3 rounded-full bg-amber-600 hover:bg-amber-700 transition-colors duration-200 shadow-lg"
-            aria-label="Toggle dark mode"
+            type="submit"
+            className="px-6 py-3 bg-zinc-900 text-white font-medium rounded hover:bg-zinc-800 transition-colors"
           >
-            {darkMode ? (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><circle cx="12" cy="12" r="4" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" /></svg>) : (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></svg>)}
+            Notify
           </button>
         </div>
-
-        {/* Main content */}
-        <Hero />
-        <EmailSignup />
-        <Footer />
-      </div>
+        {submitted && (
+          <p className="text-center text-zinc-700 mt-3 text-sm">
+            Thanks! We'll be in touch.
+          </p>
+        )}
+      </form>
     </div>
   );
 }
