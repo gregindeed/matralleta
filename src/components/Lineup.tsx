@@ -171,6 +171,16 @@ export default function Lineup() {
                   </div>
                 </div>
 
+                {/* Art — mobile corner accent */}
+                {batch.image && (
+                  <img
+                    src={batch.image}
+                    alt=""
+                    aria-hidden="true"
+                    className="sm:hidden absolute right-1 bottom-1 w-36 opacity-90 pointer-events-none"
+                  />
+                )}
+
                 {/* Art */}
                 {batch.image ? (
                   <div className="relative flex-1 hidden sm:block">
