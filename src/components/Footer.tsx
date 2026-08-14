@@ -97,8 +97,8 @@ export default function Footer() {
               The List
             </h4>
             <p className="text-[13px] leading-relaxed text-paper/60 max-w-[26ch]">
-              Batches drop in limited runs and the list hears first. No spam,
-              ever.
+              Be first to know when batches go live and fresh roasts ship. No
+              spam, ever.
             </p>
             {!joined ? (
               <form onSubmit={handleSubmit} noValidate className="mt-4 flex">
@@ -123,7 +123,7 @@ export default function Footer() {
               </form>
             ) : (
               <p role="status" className="mt-4 text-[13px] font-semibold text-paper/80">
-                You&apos;re on the list. First dibs incoming.
+                You&apos;re on the list. You&apos;ll hear first.
               </p>
             )}
           </div>

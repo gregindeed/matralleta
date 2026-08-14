@@ -3,7 +3,8 @@
 import { useState } from 'react';
 
 type Batch = {
-  num: string;
+  num: string; // internal key only
+  role: string;
   name: string;
   cut: string;
   notes: string;
@@ -18,16 +19,18 @@ type Batch = {
 const roster: Batch[] = [
   {
     num: '001',
+    role: 'The Flagship',
     name: 'Dual Wield',
     cut: 'Medium Roast',
     notes: 'Honey • Cinnamon',
-    status: 'Next Drop',
+    status: 'First Up',
     tagline: 'Balanced. One in each hand.',
     image: '/hero-bag.webp',
     tone: '#d9b98f',
   },
   {
     num: '002',
+    role: 'The Loud One',
     name: 'Ratatatat',
     cut: 'Dark Roast',
     notes: 'Cocoa • Chili',
@@ -39,6 +42,7 @@ const roster: Batch[] = [
   },
   {
     num: '003',
+    role: 'The Fast One',
     name: 'Quick Draw',
     cut: 'Light Roast',
     notes: 'Citrus • Honeysuckle',
@@ -48,6 +52,7 @@ const roster: Batch[] = [
   },
   {
     num: '004',
+    role: 'The Technical One',
     name: 'Double Feed',
     cut: 'Espresso Roast',
     notes: 'Dark Chocolate • Brown Sugar',
@@ -105,7 +110,7 @@ export default function Lineup() {
                 <p
                   className={`font-display uppercase tracking-widest whitespace-nowrap text-sm lg:text-base lg:-rotate-90 ${text}`}
                 >
-                  {batch.num} &mdash; {batch.name}
+                  {batch.name}
                 </p>
               </div>
 
@@ -119,7 +124,7 @@ export default function Lineup() {
                 <div className="flex flex-col justify-center p-7 lg:p-14 max-w-lg">
                   <div className="flex items-center gap-3">
                     <p className={`text-[10px] font-semibold uppercase tracking-[0.3em] ${subText}`}>
-                      Batch {batch.num}
+                      {batch.role}
                     </p>
                     <span
                       className={`text-[9px] font-bold uppercase tracking-[0.2em] px-2 py-1 rounded-full border whitespace-nowrap ${
@@ -195,7 +200,7 @@ export default function Lineup() {
                     <p
                       className={`font-display uppercase tracking-widest text-7xl lg:text-8xl opacity-10 select-none ${text}`}
                     >
-                      {batch.num}
+                      {batch.name.split(' ')[0]}
                     </p>
                   </div>
                 )}

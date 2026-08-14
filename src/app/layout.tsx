@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://matralleta.com'),
   title: 'Matralleta Coffee Co. — Small Batch. Fully Loaded.',
   description:
-    'Small-batch specialty coffee with Baja California roots, shipped anywhere. Four limited-run cuts — Dual Wield, Ratatatat, Quick Draw, Double Feed. Join the list for first access to drops.',
+    'Small-batch specialty coffee with Baja California roots, shipped anywhere. A tight four-cut roster — Dual Wield, Ratatatat, Quick Draw, Double Feed. Join the list to hear first when we go live.',
   keywords: [
     'Matralleta',
     'Matralleta Coffee',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     'Baja California coffee',
     'San Diego coffee roaster',
     'Mexican coffee',
-    'limited run coffee drops',
+    'small batch coffee roster',
     'whole bean coffee',
   ],
   alternates: {
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Matralleta Coffee Co. — Small Batch. Fully Loaded.',
     description:
-      'Baja-born small-batch coffee in four limited-run cuts. Join the list for first dibs.',
+      'Baja-born small-batch coffee in a tight four-cut roster. Join the list to hear first.',
     images: ['/og.jpg'],
   },
   robots: {
@@ -83,14 +83,14 @@ const structuredData = {
       '@type': 'ItemList',
       name: 'The Lineup',
       description:
-        'Four small-batch coffee cuts roasted in limited runs.',
+        'A tight four-cut roster of small-batch coffees.',
       itemListElement: [
         {
           '@type': 'Product',
           position: 1,
           name: 'Dual Wield',
           description:
-            'Medium roast, single origin Colombia. Honey and cinnamon notes.',
+            'Medium roast, the balanced daily driver. Honey and cinnamon notes.',
           brand: { '@id': 'https://matralleta.com/#org' },
         },
         {
@@ -114,7 +114,7 @@ const structuredData = {
           position: 4,
           name: 'Double Feed',
           description:
-            'Espresso roast, single origin Brazil. Dark chocolate and brown sugar notes. Built for double shots.',
+            'Espresso roast, two-origin blend. Dark chocolate and brown sugar notes. Built for double shots.',
           brand: { '@id': 'https://matralleta.com/#org' },
         },
       ],

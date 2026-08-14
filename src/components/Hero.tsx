@@ -48,7 +48,7 @@ export default function Hero() {
           {/* Batch caption */}
           <a href="#lineup" className="mt-5 lg:mt-6 text-center group">
             <p className="font-display text-base lg:text-lg uppercase tracking-wide text-espresso group-hover:text-brand-red transition-colors duration-200">
-              Batch 001 &mdash; Dual Wield
+              Dual Wield &mdash; The Flagship
             </p>
             <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.25em] text-kraft-deep">
               See the full lineup &darr;
@@ -66,7 +66,7 @@ export default function Hero() {
 
           <p className="mt-4 text-base lg:text-lg text-espresso-soft leading-relaxed max-w-md mx-auto lg:mx-0">
             Baja-born beans. San Diego attitude. Shipped wherever you are.
-            Four cuts in limited runs &mdash; from first-light citrus to
+            Four cuts, one tight roster &mdash; from first-light citrus to
             full-burst cocoa and chili &mdash; roasted with grit and bagged
             by hand.
           </p>
@@ -107,7 +107,7 @@ export default function Hero() {
                 role="status"
                 className="px-4 py-2.5 bg-white/60 border-2 border-kraft/40 rounded-lg text-sm font-semibold text-espresso text-center sm:text-left"
               >
-                Welcome to the crew. Watch for the first drop.
+                Welcome to the crew. You'll be first to know when we go live.
               </p>
             )}
             {status === 'error' && (
@@ -117,7 +117,7 @@ export default function Hero() {
             )}
             {status !== 'success' && (
               <p className="mt-3 text-xs text-espresso-soft/70">
-                First access to drops &bull; Fresh roast alerts &bull; No
+                Be first when we go live &bull; Fresh roast alerts &bull; No
                 spam, ever
               </p>
             )}
