@@ -53,7 +53,7 @@ const roster: Batch[] = [
     notes: 'Citrus • Honeysuckle',
     status: 'Coming Soon',
     tagline: 'Primera luz. Bright, clean, gone quick.',
-    image: '/quickdraw-bag.webp',
+    image: '/first-light-bag.webp',
     bg: '/first-light-bg.webp',
     tone: '#222222',
     dark: true,
