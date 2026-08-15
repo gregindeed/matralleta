@@ -15,13 +15,14 @@ export default function Footer() {
   };
 
   const lineup = [
-    { label: 'Dual Wield — Medium', href: '#lineup' },
-    { label: 'Ratatatat — Strong Cut', href: '#lineup' },
-    { label: 'Quick Draw — Light', href: '#lineup' },
-    { label: 'Double Feed — Espresso', href: '#lineup' },
+    { label: 'Dual Wield — Medium', href: '/#lineup' },
+    { label: 'Ratatatat — Strong Cut', href: '/#lineup' },
+    { label: 'Quick Draw — Light', href: '/#lineup' },
+    { label: 'Double Feed — Espresso', href: '/#lineup' },
   ];
 
   const company = [
+    { label: 'Merch', href: '/merch' },
     { label: 'Contact', href: 'mailto:hello@matralleta.com' },
     {
       label: 'Wholesale',
@@ -40,7 +41,7 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-10">
           {/* Brand */}
           <div>
-            <a href="#" aria-label="Matralleta Coffee Co.">
+            <a href="/" aria-label="Matralleta Coffee Co. — home">
               <img
                 src="/logo-cream.png"
                 alt="Matralleta Coffee Co."
@@ -50,6 +51,9 @@ export default function Footer() {
             <p className="mt-4 text-[13px] leading-relaxed text-paper/60 max-w-[26ch]">
               Small-batch coffee with Baja California roots. Roasted with
               grit, bagged by hand, shipped wherever you are.
+            </p>
+            <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.25em] text-paper/40">
+              Veteran Owned &amp; Operated
             </p>
           </div>
 

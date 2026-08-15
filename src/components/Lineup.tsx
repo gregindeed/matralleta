@@ -12,6 +12,7 @@ type Batch = {
   tagline: string;
   strongCut?: boolean;
   image?: string; // drop a /public path here when card art is ready
+  bg?: string; // optional photographic panel backdrop
   tone: string; // panel background
   dark?: boolean; // true = light text on dark panel
 };
@@ -26,7 +27,9 @@ const roster: Batch[] = [
     status: 'First Up',
     tagline: 'Balanced. One in each hand.',
     image: '/hero-bag.webp',
+    bg: '/dualwield-bg.webp',
     tone: '#d9b98f',
+    dark: true,
   },
   {
     num: '002',
@@ -37,7 +40,9 @@ const roster: Batch[] = [
     status: 'Roasting Now',
     strongCut: true,
     tagline: 'The loud one. Full burst.',
-    tone: '#43301f',
+    image: '/ratatatat-bag.webp',
+    bg: '/ratatatat-bg.webp',
+    tone: '#c22f22',
     dark: true,
   },
   {
@@ -48,7 +53,9 @@ const roster: Batch[] = [
     notes: 'Citrus • Honeysuckle',
     status: 'Coming Soon',
     tagline: 'Bright and fast. First light.',
-    tone: '#ecd9b8',
+    image: '/quickdraw-bag.webp',
+    tone: '#222222',
+    dark: true,
   },
   {
     num: '004',
@@ -58,7 +65,9 @@ const roster: Batch[] = [
     notes: 'Dark Chocolate • Brown Sugar',
     status: 'Coming Soon',
     tagline: 'Built for doubles — 18g in, 36g out.',
-    tone: '#6e4d31',
+    image: '/doublefeed-bag.webp',
+    bg: '/doublefeed-bg.webp',
+    tone: '#8f7134',
     dark: true,
   },
 ];
@@ -96,11 +105,29 @@ export default function Lineup() {
                 }
               }}
               aria-expanded={isActive}
-              className={`relative overflow-hidden text-left transition-all duration-500 ease-in-out border-espresso/15 border-t lg:border-t-0 lg:border-l first:border-t-0 lg:first:border-l-0 ${
+              className={`relative overflow-hidden text-left transition-all duration-500 ease-in-out border-espresso/15 border-t lg:border-t-0 lg:border-l first:border-t-0 lg:first:border-l-0 focus:outline-none focus-visible:outline-2 focus-visible:outline-brand-red ${
                 isActive ? '' : 'cursor-pointer hover:brightness-105'
               }`}
-              style={{ backgroundColor: batch.tone, flexGrow: isActive ? 6 : 1, flexBasis: 0 }}
+              style={{
+                backgroundColor: batch.tone,
+                flexGrow: isActive ? 6 : 1,
+                flexBasis: 0,
+                ...(batch.bg
+                  ? {
+                      backgroundImage: `url(${batch.bg})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                    }
+                  : {}),
+              }}
             >
+              {batch.bg && (
+                <div
+                  className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent pointer-events-none"
+                  aria-hidden="true"
+                ></div>
+              )}
+
               {/* Collapsed label */}
               <div
                 className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
@@ -142,7 +169,7 @@ export default function Lineup() {
                   </h3>
 
                   {batch.strongCut && (
-                    <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.3em] text-brand-red">
+                    <p className="mt-2 inline-block self-start px-2 py-1 rounded text-[10px] font-bold uppercase tracking-[0.3em] text-paper bg-brand-red">
                       Strong Cut
                     </p>
                   )}
@@ -157,19 +184,23 @@ export default function Lineup() {
 
                   <div className="mt-7 flex items-center gap-4">
                     <span
-                      className={`px-6 py-2.5 text-sm font-semibold rounded-lg cursor-not-allowed ${
+                      className={`px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.1em] rounded-lg cursor-not-allowed ${
                         batch.dark
                           ? 'bg-paper/15 text-paper/50'
                           : 'bg-espresso/10 text-espresso-soft/50'
                       }`}
                       title={batch.status}
                     >
-                      Order
+                      Out of Stock
                     </span>
                     <a
                       href="#early-access"
                       onClick={(e) => e.stopPropagation()}
-                      className="text-[11px] font-semibold uppercase tracking-[0.15em] text-brand-red hover:text-brand-red-deep transition-colors duration-200"
+                      className={`text-[11px] font-semibold uppercase tracking-[0.15em] transition-colors duration-200 ${
+                        batch.dark
+                          ? 'text-paper/80 hover:text-paper'
+                          : 'text-brand-red hover:text-brand-red-deep'
+                      }`}
                     >
                       Get notified
                     </a>
@@ -192,7 +223,7 @@ export default function Lineup() {
                     <img
                       src={batch.image}
                       alt={`${batch.name} packaging`}
-                      className="absolute inset-0 w-full h-full object-contain object-center p-8"
+                      className={`absolute inset-0 w-full h-full object-contain p-8 ${batch.bg ? 'object-bottom pb-4' : 'object-center'}`}
                     />
                   </div>
                 ) : (
