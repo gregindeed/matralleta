@@ -17,7 +17,7 @@ export default function Footer() {
   const lineup = [
     { label: 'Dual Wield — Medium', href: '/#lineup' },
     { label: 'Ratatatat — Strong Cut', href: '/#lineup' },
-    { label: 'Quick Draw — Light', href: '/#lineup' },
+    { label: 'First Light — Light', href: '/#lineup' },
     { label: 'Double Feed — Espresso', href: '/#lineup' },
   ];
 

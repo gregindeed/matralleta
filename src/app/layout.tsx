@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Inter, Archivo_Black } from 'next/font/google';
 import './globals.css';
 
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://matralleta.com'),
   title: 'Matralleta Coffee Co. — Small Batch. Fully Loaded.',
   description:
-    'Small-batch specialty coffee with Baja California roots, shipped anywhere. A tight four-cut roster — Dual Wield, Ratatatat, Quick Draw, Double Feed. Join the list to hear first when we go live.',
+    'Small-batch specialty coffee with Baja California roots, shipped anywhere. A tight four-cut roster — Dual Wield, Ratatatat, First Light, Double Feed. Join the list to hear first when we go live.',
   keywords: [
     'Matralleta',
     'Matralleta Coffee',
@@ -104,7 +105,7 @@ const structuredData = {
         {
           '@type': 'Product',
           position: 3,
-          name: 'Quick Draw',
+          name: 'First Light',
           description:
             'Light roast, single origin Ethiopia. Citrus and honeysuckle notes.',
           brand: { '@id': 'https://matralleta.com/#org' },
@@ -136,6 +137,16 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-E0PGW9L7RS"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-E0PGW9L7RS');`}
+        </Script>
         {children}
       </body>
     </html>
